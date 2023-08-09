@@ -79,8 +79,9 @@ print("Tengo", valor, "años")
 
 inversion = int(input("Escriba cuanto desea invertir"))
 meses = int(input("Escriba la cantidad de meses"))
+interes = inversion*6/100
 
-print("usted tendra en su cuenta", inversion*6/100+inversion*meses, "$")
+print("usted tendra en su cuenta", inversion*meses+interes*meses, "$")
 
 # Ejercicio 14
 # Una empresa telefónica desea un programa para calcular el importe de sus clientes. Sabiendo que el
@@ -180,3 +181,34 @@ print(dias, "dia/s", horas, "horas", minutos, "minutos", segundos, "segundos")
 # El valor de x es: <x>
 # El valor de y es: <y>
 # donde en lugar de <x> e <y> deberá mostrarse el valor de las respectivas variables
+
+x = int(input("ingrese un valor"))
+y = int(input("ingrese un valor"))
+
+valorX = x
+x = y
+y = valorX
+
+print("El valor de x es:", x)
+print("El valor de y es:", y)
+
+# Escribir en Python un programa que pida al usuario que ingrese tres valores y los guarde en tres
+# variables, x, y, y z. El programa deberá intercambiar circularmente los valores de x, y y z, es decir, x
+# debe tomar el valor de y, y el de z y z el de x. Y luego mostrarlos en pantalla:
+# El valor de x es: <x>
+# El valor de y es: <y>
+# El valor de z es: <z>
+# donde en lugar de <x>, <y> y <z> deberá mostrarse el valor de las respectivas variables
+
+x = int(input("ingrese un valor"))
+y = int(input("ingrese un valor"))
+z = int(input("ingrese un valor"))
+
+valorX = x
+x = y
+y = z
+z = valorX
+
+print("El valor de x es:", x)
+print("El valor de y es:", y)
+print("El valor de z es:", z)
