@@ -127,50 +127,234 @@ if nota < 4:
     print("debe recuperar")
 
 
-#6
-#a) Escribir en papel un programa que pida al usuario dos números, y que muestre en
-#pantalla al mayor de ambos. Luego hacer 3 corridas de escritorio, luego pasarlo a
-#Python y por último correr el programa con los valores iniciales de las corridas y
-#verificar que funciona como se esperaba.
-#b) Ídem anterior pero para encontrar el menor
+# 6
+# a) Escribir en papel un programa que pida al usuario dos números, y que muestre en
+# pantalla al mayor de ambos. Luego hacer 3 corridas de escritorio, luego pasarlo a
+# Python y por último correr el programa con los valores iniciales de las corridas y
+# verificar que funciona como se esperaba.
+# b) Ídem anterior pero para encontrar el menor
 
-#ej encontrar mayor:
+# ej encontrar mayor:
 primerNum = int(input("Escriba un numero"))
 segundoNum = int(input("Escriba otro numero"))
 
-if primerNum > segundoNum : 
+if primerNum > segundoNum:
     print(primerNum, " primerNum es mayor")
 
-elif segundoNum > primerNum :
+elif segundoNum > primerNum:
     print(segundoNum, "segundoNum es mayor")
 
-else :
+else:
     print("son iguales")
 
-#ej encontrar menor:
+# ej encontrar menor:
 
 primerNum = int(input("Escriba un numero"))
 segundoNum = int(input("Escriba otro numero"))
 
-if primerNum < segundoNum : 
+if primerNum < segundoNum:
     print(primerNum, " primerNum es menor")
 
-elif segundoNum < primerNum :
+elif segundoNum < primerNum:
     print(segundoNum, "segundoNum es menor")
 
-else :
+else:
     print("son iguales")
 
- #7
-#Escribir en papel un programa que pida al usuario dos números de punto flotante y muestre
-#su promedio. Además, si el promedio es mayor que 7 el programa debe mostrar en pantalla
-#"Aprobado" y si no, debe mostrar "Desaprobado". Después de hacerlo en papel, pasarlo a Python.
+ # 7
+# Escribir en papel un programa que pida al usuario dos números de punto flotante y muestre
+# su promedio. Además, si el promedio es mayor que 7 el programa debe mostrar en pantalla
+# "Aprobado" y si no, debe mostrar "Desaprobado". Después de hacerlo en papel, pasarlo a Python.
 
 nota1 = float(input("Escriba la nota"))
 nota2 = float(input("Escriba la nota"))
-promedio = nota1 + nota2 /2
+promedio = nota1 + nota2 / 2
 
-if promedio >7 :
+if promedio > 7:
     print("aprobado")
-else :
+else:
     print("desaprobado")
+
+
+# 8
+# Escribir en papel un programa que tome un número entero positivo ingresado por el usuario
+# y muestre por pantalla "Usted ingresó un número de una sola cifra" o "Usted ingresó un número
+# de más de una cifra" según corresponda. Realizar 4 corridas de escritorio, escribirlo en Python
+# y luego correrlo en la computadora con los valores iniciales de las corridas y verificar que hayan
+# dado como se esperaba.
+
+num = int(input("Ingrese un numero entero positivo"))
+
+if num >= 0 and num < 10:
+    print("Usted ingreso un numero de una sola cifra")
+else:
+    print("Usted ingreso un numero de mas de una cifra")
+
+# 9
+# Se tiene la siguiente lista con DNIs de personas.
+# 30612453
+# 23763290
+# 21448503
+# 34582048
+# 15364857
+# Dado otro número de DNI cualquiera, se desea construir un programa que determine si es alguno
+# de los existentes en el listado. Escribir el programa en papel y luego pasarlo a Python
+
+dni = int(input("Escriba el dni que desea buscar"))
+
+dni1 = 30612453
+dni2 = 23763290
+dni3 = 21448503
+dni4 = 34582048
+dni5 = 15364857
+
+if dni == dni1 or dni == dni2 or dni == dni3 or dni == dni4 or dni == dni5:
+    print("El dni esta en la lista")
+else:
+    print("El dni no se encuentra en la lista")
+
+
+# 10
+# Hacer en pseudocodigo y luego un programa que calcule el importe que se le facturará a un
+# cliente por consumo de electricidad sabiendo que la compañía que se la provee cobra una tarifa
+# fija de 480 pesos que incluye los primeros 200 KW consumidos y los KW excedentes se los cobra
+# a 25,5 pesos el KW, además se agregan $78 de impuestos. Se leen los valores del medidor al
+# comienzo y al fin del período.
+
+
+consumo = int(input("¿Cuantos kw consumio el usuario?"))
+tarifaFija = 480
+kw = 25.5
+impuestos = 78
+
+print("El consumo fue de",consumo," KW")
+
+if consumo >200 : 
+    total = (consumo-200)*kw + tarifaFija + impuestos
+    print ("el usuario debera pagar", "$",total, "por el consumo de ",consumo,"KW")
+else : 
+    total = tarifaFija + impuestos
+    print("El usuario debera pagar","$",total,"por el consumo de",consumo,"KW")
+
+
+#11
+# Se desea escribir un programa que pida al usuario tres números y luego muestre el mayor de
+# ellos. Escribir el programa en papel, realizar 3 pruebas de escritorio y luego pasarlo a Python y
+# verificar los resutlados.
+
+a = int(input("Escriba un numero entero"))
+b = int(input("Escriba un numero entero"))
+c = int(input("Escriba un numero entero"))
+
+if a > b and a > c :
+    print(a,"es el mayor")
+elif b > a and b > c :
+    print(b,"es el mayor")
+elif c > a and c > b :
+    print(c,"es el mayor")
+elif a > b and a == c :
+    print (a,"y",c,"Son iguales y mayores que",b)
+elif b > a and b == c :
+    print (b,"y",c,"Son iguales y mayores que",a)
+elif a  > c and a == b :
+    print (a,"y",b,"Son iguales y mayores que",c)
+else :
+    print (a,b,c,"Son iguales")
+
+# 12
+# Un profesor clasifica las notas de sus alumnos de la siguiente manera:
+# 1-3 Reprobado
+# 4-6 Debe rendir examen final
+# 7-10 Eximido
+# a) Escribir un programa que indique la clasificación de una nota.
+# b) Escribir un programa que pida 3 notas, calcule el promedio e indique la clasificación
+# del mismo.
+
+#a)
+
+nota = int(input("Escriba la nota del alumno"))
+
+if nota >= 7 :
+    print ("El alumno esta eximido")
+elif nota >=4 and nota <=6 :
+    print ("El alumno debera rendir un final")
+else :
+    print ("El alumno sera reprobado")
+    
+#b)
+
+nota1 = int(input("Escriba la nota del alumno"))
+nota2 = int(input("Escriba la nota del alumno"))
+nota3 = int(input("Escriba la nota del alumno"))
+promedio = (nota1 + nota2 + nota3)//3
+
+if promedio >= 7 :
+    print ("El alumno esta eximido")
+elif promedio >=4 and promedio <=6 :
+    print ("El alumno debera rendir un final")
+else :
+    print ("El alumno sera reprobado")
+
+# 13 
+# Escribir un programa que pida al usuario dos enteros y que luego muestre si el primero es
+# mayor que el segundo o viceversa.
+
+num1 = int(input("Escriba un numero entero"))
+num2 = int(input("Escriba otro numero entero"))
+
+if num1 > num2 : 
+    print (num1,"es mayor que",num2)
+else :
+    print(num2,"es mayor que",num1)
+
+# 14 
+# Escribir un programa que pida al usuario dos enteros y los guarde en dos variables. Si el
+# primero de los valores fuera menor que el segundo, el programa deberá además intercambiar los
+# valores de las variables y mostrarlos de mayor a menor
+
+num1 = int(input("Escriba un numero entero"))
+num2 = int(input("Escriba otro numero entero"))
+
+if num1 < num2 : 
+    valorNum1 = num1
+    num1 = num2
+    num2 = valorNum1 
+    print("num1",num1,"num2",num2)
+else :
+    print(num1,"es mayor a",num2)
+    
+# 15
+# Escribir un programa que pida al usuario tres enteros y los guarde en tres variables a, b y c.
+# El programa deberá luego hacer que en la variable a quede el menor de los valores recibidos, en
+# b el intermedio y en c el mayor (es decir, ordenará los valores).
+
+a = int(input("ingrese un valor"))
+b = int(input("ingrese un valor"))
+c = int(input("ingrese un valor"))
+
+print("el valor de a es",a,"el valor de b es",b,"el valor de c es",c)
+
+if a > b and a > c and b > c :
+    valorA = a
+    a=c
+    c=valorA
+    print("c es",c,"b es",b,"a es",a)
+
+elif b>a and b>c and a>c : 
+        valorc = c
+        valorA = a
+        c=b
+        b=valorA
+        a=valorc
+        print("c es",c,"b es",b,"a es",a)
+
+elif b>a and b>c and c>a : 
+        valorc = c
+        c=b
+        b=valorc
+        print("c es",c,"b es",b,"a es",a)
+
+else :
+   print("c es",c,"b es",b,"a es",a)
+
+
