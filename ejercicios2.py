@@ -227,17 +227,19 @@ tarifaFija = 480
 kw = 25.5
 impuestos = 78
 
-print("El consumo fue de",consumo," KW")
+print("El consumo fue de", consumo, " KW")
 
-if consumo >200 : 
+if consumo > 200:
     total = (consumo-200)*kw + tarifaFija + impuestos
-    print ("el usuario debera pagar", "$",total, "por el consumo de ",consumo,"KW")
-else : 
+    print("el usuario debera pagar", "$", total,
+          "por el consumo de ", consumo, "KW")
+else:
     total = tarifaFija + impuestos
-    print("El usuario debera pagar","$",total,"por el consumo de",consumo,"KW")
+    print("El usuario debera pagar", "$", total,
+          "por el consumo de", consumo, "KW")
 
 
-#11
+# 11
 # Se desea escribir un programa que pida al usuario tres números y luego muestre el mayor de
 # ellos. Escribir el programa en papel, realizar 3 pruebas de escritorio y luego pasarlo a Python y
 # verificar los resutlados.
@@ -246,20 +248,20 @@ a = int(input("Escriba un numero entero"))
 b = int(input("Escriba un numero entero"))
 c = int(input("Escriba un numero entero"))
 
-if a > b and a > c :
-    print(a,"es el mayor")
-elif b > a and b > c :
-    print(b,"es el mayor")
-elif c > a and c > b :
-    print(c,"es el mayor")
-elif a > b and a == c :
-    print (a,"y",c,"Son iguales y mayores que",b)
-elif b > a and b == c :
-    print (b,"y",c,"Son iguales y mayores que",a)
-elif a  > c and a == b :
-    print (a,"y",b,"Son iguales y mayores que",c)
-else :
-    print (a,b,c,"Son iguales")
+if a > b and a > c:
+    print(a, "es el mayor")
+elif b > a and b > c:
+    print(b, "es el mayor")
+elif c > a and c > b:
+    print(c, "es el mayor")
+elif a > b and a == c:
+    print(a, "y", c, "Son iguales y mayores que", b)
+elif b > a and b == c:
+    print(b, "y", c, "Son iguales y mayores que", a)
+elif a > c and a == b:
+    print(a, "y", b, "Son iguales y mayores que", c)
+else:
+    print(a, b, c, "Son iguales")
 
 # 12
 # Un profesor clasifica las notas de sus alumnos de la siguiente manera:
@@ -270,44 +272,44 @@ else :
 # b) Escribir un programa que pida 3 notas, calcule el promedio e indique la clasificación
 # del mismo.
 
-#a)
+# a)
 
 nota = int(input("Escriba la nota del alumno"))
 
-if nota >= 7 :
-    print ("El alumno esta eximido")
-elif nota >=4 and nota <=6 :
-    print ("El alumno debera rendir un final")
-else :
-    print ("El alumno sera reprobado")
-    
-#b)
+if nota >= 7:
+    print("El alumno esta eximido")
+elif nota >= 4 and nota <= 6:
+    print("El alumno debera rendir un final")
+else:
+    print("El alumno sera reprobado")
+
+# b)
 
 nota1 = int(input("Escriba la nota del alumno"))
 nota2 = int(input("Escriba la nota del alumno"))
 nota3 = int(input("Escriba la nota del alumno"))
 promedio = (nota1 + nota2 + nota3)//3
 
-if promedio >= 7 :
-    print ("El alumno esta eximido")
-elif promedio >=4 and promedio <=6 :
-    print ("El alumno debera rendir un final")
-else :
-    print ("El alumno sera reprobado")
+if promedio >= 7:
+    print("El alumno esta eximido")
+elif promedio >= 4 and promedio <= 6:
+    print("El alumno debera rendir un final")
+else:
+    print("El alumno sera reprobado")
 
-# 13 
+# 13
 # Escribir un programa que pida al usuario dos enteros y que luego muestre si el primero es
 # mayor que el segundo o viceversa.
 
 num1 = int(input("Escriba un numero entero"))
 num2 = int(input("Escriba otro numero entero"))
 
-if num1 > num2 : 
-    print (num1,"es mayor que",num2)
-else :
-    print(num2,"es mayor que",num1)
+if num1 > num2:
+    print(num1, "es mayor que", num2)
+else:
+    print(num2, "es mayor que", num1)
 
-# 14 
+# 14
 # Escribir un programa que pida al usuario dos enteros y los guarde en dos variables. Si el
 # primero de los valores fuera menor que el segundo, el programa deberá además intercambiar los
 # valores de las variables y mostrarlos de mayor a menor
@@ -315,14 +317,14 @@ else :
 num1 = int(input("Escriba un numero entero"))
 num2 = int(input("Escriba otro numero entero"))
 
-if num1 < num2 : 
+if num1 < num2:
     valorNum1 = num1
     num1 = num2
-    num2 = valorNum1 
-    print("num1",num1,"num2",num2)
-else :
-    print(num1,"es mayor a",num2)
-    
+    num2 = valorNum1
+    print("num1", num1, "num2", num2)
+else:
+    print(num1, "es mayor a", num2)
+
 # 15
 # Escribir un programa que pida al usuario tres enteros y los guarde en tres variables a, b y c.
 # El programa deberá luego hacer que en la variable a quede el menor de los valores recibidos, en
@@ -332,29 +334,58 @@ a = int(input("ingrese un valor"))
 b = int(input("ingrese un valor"))
 c = int(input("ingrese un valor"))
 
-print("el valor de a es",a,"el valor de b es",b,"el valor de c es",c)
+print("el valor de a es", a, "el valor de b es", b, "el valor de c es", c)
 
-if a > b and a > c and b > c :
+if a > b and a > c and b > c:
     valorA = a
-    a=c
-    c=valorA
-    print("c es",c,"b es",b,"a es",a)
+    a = c
+    c = valorA
+    print("c es", c, "b es", b, "a es", a)
 
-elif b>a and b>c and a>c : 
-        valorc = c
-        valorA = a
-        c=b
-        b=valorA
-        a=valorc
-        print("c es",c,"b es",b,"a es",a)
+elif b > a and b > c and a > c:
+    valorc = c
+    valorA = a
+    c = b
+    b = valorA
+    a = valorc
+    print("c es", c, "b es", b, "a es", a)
 
-elif b>a and b>c and c>a : 
-        valorc = c
-        c=b
-        b=valorc
-        print("c es",c,"b es",b,"a es",a)
+elif b > a and b > c and c > a:
+    valorc = c
+    c = b
+    b = valorc
+    print("c es", c, "b es", b, "a es", a)
 
-else :
-   print("c es",c,"b es",b,"a es",a)
+else:
+    print("c es", c, "b es", b, "a es", a)
 
 
+# 16
+# Un año es bisiesto si es múltiplo de 4. Pero no siempre, las excepciones son los años múltiplos
+# de 100 que no son múltiplos de 400 (1900 no es bisiesto pero 2000, sí). Escribir en papel un
+# programa que diga si un año ingresado por el usuario es bisiesto, realizar varias pruebas de
+# escritorio, luego pasarlo a Python y verificar los resutlados.
+
+bisiesto = int(input("Escriba un año"))
+
+if bisiesto % 4 == 0:
+    if bisiesto % 100 == 0 and bisiesto % 400 != 0:
+        print(bisiesto, "no es  bisiesto")
+    else:
+        print(bisiesto, "es bisiesto")
+else:
+    print(bisiesto, "no es bisiesto")
+
+# 17 
+# Escribe un programa que pida los coficientes de una ecuación de primer grado (ax + b = 0)
+# y escriba la solución. Recuerda que una ecuación de primer grado puede no tener solución, tener
+# una solución única, o que todos los números reales sean solución.
+
+coeficiente = int(input("Escriba un numero"))
+x = int(input("Escriba un numero"))
+b = int(input("Escriba un numero"))
+
+print("la ecucion a resolver es : ax + b = 0")
+
+ecuacion =(coeficiente*x)+b == 0
+print(ecuacion)
