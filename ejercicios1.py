@@ -77,6 +77,7 @@ print("Tengo", valor, "años")
 # su cuenta si el banco incrementa el 6 % mensual(no acumulativo). Se le debe pedir al usuario el capital
 # a invertir y la cantidad de meses
 
+
 inversion = int(input("Escriba cuanto desea invertir"))
 meses = int(input("Escriba la cantidad de meses"))
 interes = inversion*6/100
@@ -126,14 +127,18 @@ print("El sueldo final del vendedor sera de ",
 # Si tuviera 15000 segundos y quisiera pasarlo a horas deberia hacer: (15000/60)/60
 # Si tuviera 90000 segundos y quisiera pasarlo a dias deberia hacer: (90000/60)/60/24
 
-cantidadSegundos = int(input("Escriba la cantidad de segundos"))
-minutos = cantidadSegundos/60
-horas = minutos/60
-dias = horas/24
+seg = int(input("Escriba la cantidad de segundos: "))
 
-print("La cantidad de segundos que escribio equivalen a", minutos, "minutos")
-print("La cantidad de segundos que escribio equivalen a", horas, "horas")
-print("La cantidad de segundos que escribio equivalen a", dias, "dia/s")
+SEGUNDOS_POR_MINUTO = 60
+SEGUNDOS_POR_HORA = 3600
+SEGUNDOS_POR_DIA = 86400
+
+minutos = seg / SEGUNDOS_POR_MINUTO
+hora = seg / SEGUNDOS_POR_HORA
+dia = seg / SEGUNDOS_POR_DIA
+
+print(seg, "segundos son en minutos:", minutos,
+      "en horas:", hora, "y en dias:", dia)
 
 # Ejercicio 17
 # La empresa que administra los cajeros automáticos lo contrata para que programen la entrega de
@@ -141,14 +146,25 @@ print("La cantidad de segundos que escribio equivalen a", dias, "dia/s")
 # denominación se debe entregar. Es importante entregar siempre la menor cantidad de billetes. Ayuda:
 # El operador % da el resto de la división a/b, y el operador // da la parte entera del cociente de a/b.
 
-billetes = int(input("ingrese la cantidad de dinero que desea retirar"))
+dinero = int(input("Escriba la cantidad de dinero que desea retirar: "))
 
-billeteDe10 = billetes/10
-billeteDe20 = billetes/20
-billeteDe50 = billetes/50
-billeteDe100 = billetes/100
-billeteDe1000 = billetes/1000
-billeteDe2000 = billetes/2000
+billete2000 = dinero // 2000
+resto = dinero % 2000
+
+billete1000 = resto // 1000
+resto %= 1000
+
+billete500 = resto // 500
+resto %= 500
+
+billete200 = resto // 200
+resto %= 200
+
+billete100 = resto // 100
+resto %= 100
+
+print("El usuario recibirá", billete2000, "billetes de 2000,", billete1000, "billetes de 1000,", billete500,
+      "billetes de 500,", billete200, "billetes de 200,", billete100, "billetes de 100, y quedará un remanente de $", resto)
 
 # Ejercicio 18
 # Escribir una expresión que dada una cantidad de segundos, evalúe a la cantidad de horas que éstos

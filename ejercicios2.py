@@ -1,5 +1,6 @@
 # 1
 
+import math
 a = int(input("dame un numero entero"))
 b = int(input("dame un numero entero"))
 c = int(input("dame un numero entero"))
@@ -222,21 +223,24 @@ else:
 # comienzo y al fin del período.
 
 
-consumo = int(input("¿Cuantos kw consumio el usuario?"))
+medidor = int(input("Indicar cantidad de kw consumidos"))
 tarifaFija = 480
-kw = 25.5
 impuestos = 78
+precioKW = 25.5
+consumoIncluido = 200
+diferenciaDeKw = medidor - consumoIncluido
 
-print("El consumo fue de", consumo, " KW")
+print("El medidor de kw dio: ", consumoIncluido, "KW")
 
-if consumo > 200:
-    total = (consumo-200)*kw + tarifaFija + impuestos
-    print("el usuario debera pagar", "$", total,
-          "por el consumo de ", consumo, "KW")
+if (medidor > 200):
+    total = tarifaFija + (diferenciaDeKw*precioKW) + impuestos
+    print("El cliente debera pagar $",
+          total)
 else:
     total = tarifaFija + impuestos
-    print("El usuario debera pagar", "$", total,
-          "por el consumo de", consumo, "KW")
+    print("El cliente debera pagar $",  total)
+
+print("El medidor de kw dio: ", medidor, "KW")
 
 
 # 11
@@ -376,16 +380,54 @@ if bisiesto % 4 == 0:
 else:
     print(bisiesto, "no es bisiesto")
 
-# 17 
-# Escribe un programa que pida los coficientes de una ecuación de primer grado (ax + b = 0)
+# 17
+# Escribe un programa que pida los coeficientes de una ecuación de primer grado (ax + b = 0)
 # y escriba la solución. Recuerda que una ecuación de primer grado puede no tener solución, tener
 # una solución única, o que todos los números reales sean solución.
 
-coeficiente = int(input("Escriba un numero"))
-x = int(input("Escriba un numero"))
-b = int(input("Escriba un numero"))
+# si a == 0 la ecuacion no tiene solucion porque su pendiente es 0 y la linea de b (que no deberia ser 0) seria horizontal y no atravesaria el eje x
+# Que todos los numeros reales sean solucion serian que los 2, tanto a como b sean 0
 
-print("la ecucion a resolver es : ax + b = 0")
 
-ecuacion =(coeficiente*x)+b == 0
-print(ecuacion)
+a = int(input("escriba un coeficiente"))
+b = int(input("escriba un coeficiente"))
+
+if (a != 0):
+    x = -b/a
+    print("El valor de x en la ecuacion es: ", x)
+elif (a == 0 and b != 0):
+    print("La ecuacion no tiene solucion")
+else:
+    print("Todos los mumeros reales son solucion")
+
+# Una función cuadrática se escribe como ax2+bx+c. La misma puede tener una, dos o ninguna
+# raíz. Escribir un programa que pida al usuario los datos de la misma, es decir, a, b y c, y muestre
+# todas sus raíces, o el mensaje No tiene raíces cuando corresponda.
+# datazos:
+# la formula para averiguar las raices de una funcion cuadratica es -b (+-) raiz cuadrada de (b al cuadrado - 4*a*c)/2*a
+# lo primero que se hace para resolverlo es saber el "discriminante", esto es b**2 - 4*a*c (raiz cuadrada de b menos 4*a*c )
+# Si el discriminante es <0 no tiene raices, la parabola en el eje cartesiano no toca en ningun momento el eje x
+# Si el discriminante == 0, tiene una unica raiz, lo que significa que la raiz en la parabola de un eje cartesiano solo toca un punto en el eje x. la formula es -b/(2*a)
+# Si el discriminante es > 0 tiene 2 raices. Lo que significa que habra 2 soluciones posibles y el eje x sera atravesado en 2 puntos distintos.
+# para este ultimo caso la formula en codigo seria : (-b + Math.sqrt(discriminante)) / (2*a) para raiz positiva y (-b - Math.sqrt(discriminante)) / (2*a) para la negativa
+
+
+a = float(input("escriba un coeficiente"))
+b = float(input("escriba un coeficiente"))
+c = float(input("escriba un coeficiente"))
+
+discriminante = b**2 - 4*a*c
+
+if (discriminante > 0):
+
+    raizPos = (-b + math.sqrt(discriminante)) / (2*a)
+    raizNeg = (-b - math.sqrt(discriminante)) / (2*a)
+    print("la raiz positiva es:", raizPos)
+    print("la raiz negativa es:", raizNeg)
+
+elif discriminante == 0:
+    raiz = -b/(2*a)
+    print("Tiene una sola raiz en: ", raiz)
+
+else:
+    print(" La funcion cuadratica no tiene raices")
