@@ -266,6 +266,135 @@ def enteroPrimo(entero):
 # b) Hacer una función que reciba tres enteros y retorne el mayor.
 
 
+# a)
+def mayor(a, b):
+
+    if a > b:
+        return a
+    else:
+        return b
+
+# b)
+
+
+def elMayor(a, b, c):
+
+    if a > b and a > c:
+        return a
+    elif b > a and b > c:
+        return b
+    else:
+        return c
+
+
 # Ejercicio 10
-# Hacer una función potencia, que reciba dos enteros a y b y retorne a
-# b
+# Hacer una función potencia, que reciba dos enteros a y b y retorne a ** b
+
+
+def potencia(a, b):
+    return a**b
+
+
+# Ejercicio 11
+# a) Hacer una función que sume los divisores propios de un número.
+# b) Hacer una función que indique si un número es perfecto. Número perfecto: a es
+# perfecto si la suma de sus divisores propios es igual a a.
+# c) Hacer una función que determine si un número ingresado por el usuario es un número
+# abundante. Número abundante: todo número natural que cumple que la suma de sus
+# divisores propios es mayor que el propio número. Por ejemplo, 12 es abundante ya
+# que sus divisores son 1, 2, 3, 4 y 6 y se cumple que 1+2+3+4+6=16, que es mayor
+# al propio 12
+
+
+# a)
+
+def sumaDivisores(n):
+
+    suma = 0
+
+    for i in range(1, n+1):
+        if n % i == 0:
+            suma = suma + i
+
+    return suma
+
+
+# b)
+
+
+# def sumaDivisoresPropios(n):
+#     suma = 0
+#     for i in range(1, n):
+#         if n % i == 0:
+#             suma = suma + i
+
+#     if suma == n:
+#         return "Es perfecto"
+#     else:
+#         return "No es perfecto"
+
+def sumaDivisoresPropios(n):
+    if sumaDivisores(n) == 0:
+        return "es perfecto"
+    else:
+        return "No es perfecto"
+
+
+# c)
+
+
+n = int(input("escriba un numero :"))
+
+
+def abundante(n):
+    suma = 0
+    for i in range(1, n):
+        if n % i == 0:
+            suma = suma + i
+
+    if suma > n:
+        return "Es abundante"
+    else:
+        return "No es abundante"
+
+
+print(abundante(n))
+
+
+# Ejercicio 12
+# Hacer una función que indique si un número es Poderoso: Número poderoso: es un número
+# natural n que cumple que todos sus divisores primos al cuadrado también son divisores, es decir,
+# si p es un divisor primo entonces p**2 también lo es. Por ejemplo, el número 36 es un número
+# poderoso ya que los únicos primos que son divisores suyos son 2 y 3 y se cumple que 4 y 9
+# también son divisores de 36.
+
+
+def primo(n):
+    bandera = True
+    # arranca del 2 porque el 1 es divisor de todos, lo divide hacia no hace el ciclo al pedo.
+    for i in range(2, n // 2 + 1):
+        if n % i == 0:  # Si tiene algun divisor que no sea 1 y el mismo es porque no es primo
+            bandera = False
+    return bandera
+
+
+a = int(input("Ingrese un número: "))
+poderoso = True
+
+for i in range(1, a + 1):  # recorre el numero que pidio el user
+    # verifica si a es divisible por I y si I es primo de a
+    if a % i == 0 and primo(i):
+        # Si es primo pero la division de ese numero por I al cuadrado no es 0 entonces no es poderoso porque el resultado no es divisor del numero que se eligio.
+        if a % (i * i) != 0:
+            poderoso = False
+
+if poderoso == True:
+    print(a, "es poderoso")
+else:
+    print(a, "NO es poderoso")
+
+
+# Ejercicio 13
+# Hacer una función que indique si un número es Libre de Cuadrados: Número libre de cuadrados:
+# todo número natural que cumple que en su descomposición en factores primos no aparece ningún
+# factor repetido. Por ejemplo, el número 30 es un número libre de cuadrados
