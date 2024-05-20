@@ -371,7 +371,7 @@ print(abundante(n))
 
 def primo(n):
     bandera = True
-    # arranca del 2 porque el 1 es divisor de todos, lo divide hacia no hace el ciclo al pedo.
+    # arranca del 2 porque el 1 es divisor de todos, lo divide asi no hace el ciclo al pedo.
     for i in range(2, n // 2 + 1):
         if n % i == 0:  # Si tiene algun divisor que no sea 1 y el mismo es porque no es primo
             bandera = False
@@ -398,3 +398,163 @@ else:
 # Hacer una función que indique si un número es Libre de Cuadrados: Número libre de cuadrados:
 # todo número natural que cumple que en su descomposición en factores primos no aparece ningún
 # factor repetido. Por ejemplo, el número 30 es un número libre de cuadrados
+
+def primo(n):
+    bandera = True
+    for i in range(2, n//2+1):
+        if (n % i == 0):
+            bandera = False
+    return bandera
+
+
+a = int(input("Ingrese un numero"))
+producto = 1
+for i in range(1, a+1):
+    if (a % i == 0 and primo(i)):
+        producto = producto*i
+
+if (producto == a):
+    print(a, "SI es libre de cuadrados")
+else:
+    print(a, "NO es libre de cuadrados")
+
+
+# Ejercicio 14
+# Hacer un programa que solicite al usuario un número entero positivo e indique cuál es el
+# número primo mayor más cercano. Usar funciones. Por ejemplo, si el usuario ingresa 24, el
+# programa devolverá 29 (29 es el número primo más cercano mayor que 24). Si el usuario ingresa
+# 5 el programa devolverá 7
+
+
+n = int(input("Ingrese un numero"))
+
+
+def primo(n):
+    bandera = True
+    for i in range(n, n+100):
+        if (n % i == 0):
+            bandera = False
+    return bandera
+
+
+# Ejercicio 15
+# Hacer una función (no pura) que reciba una palabra y la imprima recuadrada por asteriscos.
+# Por ejemplo si la cadena fuera sobrevivir, la función debería imprimir
+# **************
+# * sobrevivir *
+# **************
+
+
+def imprimir_con_marco(palabra):
+    """Función que imprime la palabra rodeada de asteriscos."""
+    longitud = len(palabra) + 4
+    asteriscos = "*" * longitud
+
+    print(asteriscos)
+    print('* ' + palabra + ' *')
+    print(asteriscos)
+
+
+# Solicitar al usuario que ingrese una palabra
+palabra = input("Ingrese una palabra: ")
+
+# Llamar a la función para imprimir la palabra con marco de asteriscos
+imprimir_con_marco(palabra)
+
+
+# Ejercicio 17 ⋆
+# Escribir una función (y probarla en un programa) para cada una de las siguientes descripciones:
+# a) una función que se llame tieneRepetidas que tome una cadena como parámetro y
+# devuelva True si esa cadena tiene alguna letra que aparece más de una vez y False
+# en caso contrario.
+# b) una función que se llame aparece que tome dos parámetros, una letra y una cadena,
+# y devuelva True si la letra aparece en la cadena y False en caso contrario.
+# c) una función que se llame dameRepetida que tome una cadena como parámetro y
+# retorne la primer letra que aparece repetida en la cadena
+# d) una función que se llame quitarRepeticiones que tome dos parámetros, una
+# cadena y una letra, y devuelva otra cadena igual a la anterior pero sin las
+# repeticiones de esa letra. Por ejemplo, un programa que llame a la función
+# así: quitarRepeticiones("mate cocido", "c"), deberá retornar la cadena "mate
+# coido".
+
+
+# a)
+
+
+def contar(letra, cadena):
+
+    contador = 0
+
+    for caracter in cadena:
+        if letra == caracter:
+            contador = contador + 1
+
+    return contador
+
+
+def tieneRepetidas(cadena):
+
+    for caracter in cadena:
+        if contar(caracter, cadena) > 1:
+            return True
+
+    return False
+
+
+# programa
+
+a = "Hoytengounmaldia"
+b = "holi"
+
+if tieneRepetidas(a):
+    print(a, "tiene repetidas")
+else:
+    print(a, "No tiene repetidas")
+
+
+# b)
+
+def aparece(letra, cadena):
+
+    for caracter in cadena:
+        if letra == caracter:
+            return True
+
+    return False
+
+
+# c)
+
+
+def dameRepetida(cadena):
+    # Iterar sobre cada letra en la cadena
+    for i in range(len(cadena)):
+        # Comparar la letra actual con las letras siguientes en la cadena
+        for j in range(i + 1, len(cadena)):
+            if cadena[i] == cadena[j]:
+                return cadena[i]
+
+    # Si no se encuentra ninguna letra repetida, devolver None
+    return "no hay repetidas"
+
+
+# Ejemplo de uso:
+cadena = "jom"
+print(dameRepetida(cadena))
+
+
+# d)
+
+
+def quitarRepeticiones(cadena, letra):
+    nuevaCadena = ""
+
+    for caracter in cadena:
+        if caracter == letra:
+            if contar(letra, nuevaCadena) == 0:
+                nuevaCadena = nuevaCadena + letra
+            else:
+                nuevaCadena = nuevaCadena + letra
+    return nuevaCadena
+
+
